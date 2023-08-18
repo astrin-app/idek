@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        li button{
+            all: unset;
+            cursor: pointer;
+            background-color: red;
+            padding: 5px;
+            margin-inline:10px;
+        }
+    </style>
+</head>
+
+<body  style="padding: 20px;">
+    <form hx-post="/create-todo" x-on:htmx:after-request="console.log('Hello')"  hx-target="#todos" hx-swap="beforeend">
+        <input type="text" name="task" id="addTodo">
+        <input type="submit" value="Submit">
+
+    </form>
+    <ul id="todos">
+
+        {{#Todos}}
+        <li id="todo-{{ID}}">{{ Task }} 
+            <button 
+             hx-delete="/delete/{{ID}}" hx-target="#todo-{{ID}}"
+              hx-swap="outerHTML" hx-trigger="click">X</button></li>
+        {{/Todos}}
+    </ul>
+    <script>
+
+    </script>
+</body>
+
+</html>
