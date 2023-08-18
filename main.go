@@ -3,12 +3,10 @@ package main
 import (
 	"astrin/main/db"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/mustache/v2"
-	"github.com/joho/godotenv"
 )
 
 type Todo struct {
