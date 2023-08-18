@@ -18,11 +18,6 @@ type Todo struct {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	dbUrl := os.Getenv("DBURL")
 	myDB, err := db.CreateDB(dbUrl)
 	if err != nil {
