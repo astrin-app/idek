@@ -70,5 +70,5 @@ func main() {
 		myDB.Exec(fmt.Sprintf("delete from todos where id = %s", id))
 		return c.Render("delete", fiber.Map{})
 	})
-	app.Listen(fmt.Sprintf(":%s", os.Getenv("PORT")))
-}
+	app.Listen(":6969")
+	}
